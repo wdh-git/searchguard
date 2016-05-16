@@ -7,6 +7,8 @@ kibana4.3.1
 
 logstash2.1.1-1
 
+java1.8
+
 关于es权限管理方面只有官方推荐的shield，但是只能试用1个月
 
 searchguard相对于shield不是很成熟，特别是对于1.x的版本。关于1.x版本的这边有介绍http://kibana.logstash.es/content/elasticsearch/auth/searchguard.html
@@ -15,11 +17,15 @@ searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁
 
 ##优点：
 
-###1.加入了对ssl的支持。
+节点之间通过SSL/TLS传输
 
-###2.支持热载入，不需要重启服务
+支持JDK SSL和Open SSL
 
-###3.配置简单
+支持热载入，不需要重启服务
+
+支持kibana4及logstash的配置
+
+配置简单
 
 ##安装：
 
