@@ -43,9 +43,7 @@ https://github.com/wdh-001/searchguard/elasticsearch-manager.yml
 
 service elasticsearch restart
 
-将证书放在elasticsearch配置文件目录下，证书可用pki-scripts生成，（我曾经用ejbca生成证书不能使用），证书不正确会导致服务起不来。
-
-关于证书的配置https://github.com/wdh-001/searchguard/pki-scripts/
+将证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh，（我曾经用ejbca生成证书不能使用），证书不正确会导致es服务起不来。
 
 searchguard主要有5个配置文件在plugins/search-guard-2/sgconfig下：
 
