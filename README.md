@@ -33,74 +33,10 @@ bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 
 首先要配置elasticsearch支持ssl
 
-elasticsearch.yml增加以下配置
+elasticsearch.yml增加以下配置：
 
-  #############################################################################################<br>
-  #                                     SEARCH GUARD SSL                                      #<br>
-  #                                       Configuration                                       #<br>
-  #############################################################################################<br>
-<br>
-  #This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)<br>
-  security.manager.enabled: false<br>
-<br>
-  #############################################################################################<br>
-  # Transport layer SSL                                                                       #<br>
-  #                                                                                           #<br>
-  #############################################################################################<br>
-<br>
-  # Enable or disable node-to-node ssl encryption (default: true)<br>
-  #searchguard.ssl.transport.enabled: false<br>
-  # JKS or PKCS12 (default: JKS)<br>
-  #searchguard.ssl.transport.keystore_type: PKCS12<br>
-  # Relative path to the keystore file (mandatory, this stores the server certificates), must be placed under the config/ dir<br>
-  searchguard.ssl.transport.keystore_filepath: keystore_node1.jks<br>
-  # Alias name (default: first alias which could be found)<br>
-  searchguard.ssl.transport.keystore_alias: my_alias<br>
-  # Keystore password (default: changeit)<br>
-  searchguard.ssl.transport.keystore_password: changeit<br>
-<br>
-  # JKS or PKCS12 (default: JKS)<br>
-  #searchguard.ssl.transport.truststore_type: PKCS12<br>
-  # Relative path to the truststore file (mandatory, this stores the client/root certificates), must be placed under the config/ dir<br>
-  #searchguard.ssl.transport.truststore_filepath: truststore.jks<br>
-  # Alias name (default: first alias which could be found)<br>
-  #searchguard.ssl.transport.truststore_alias: my_alias<br>
-  # Truststore password (default: changeit)<br>
-  #searchguard.ssl.transport.truststore_password: changeit<br>
-  # Enforce hostname verification (default: true)<br>
-  #searchguard.ssl.transport.enforce_hostname_verification: true<br>
-  # If hostname verification specify if hostname should be resolved (default: true)<br>
-  #searchguard.ssl.transport.resolve_hostname: true<br>
-  # Use native Open SSL instead of JDK SSL if available (default: true)<br>
-  #searchguard.ssl.transport.enable_openssl_if_available: false<br>
-<br>
-  #############################################################################################<br>
-  # HTTP/REST layer SSL                                                                       #<br>
-  #                                                                                           #<br>
-  #############################################################################################<br>
-  # Enable or disable rest layer security - https, (default: false)<br>
-  #searchguard.ssl.http.enabled: true<br>
-  # JKS or PKCS12 (default: JKS)<br>
-  #searchguard.ssl.http.keystore_type: PKCS12<br>
-  # Relative path to the keystore file (this stores the server certificates), must be placed under the config/ dir<br>
-  #searchguard.ssl.http.keystore_filepath: keystore_https_node1.jks<br>
-  # Alias name (default: first alias which could be found)<br>
-  #searchguard.ssl.http.keystore_alias: my_alias<br>
-  # Keystore password (default: changeit)<br>
-  #searchguard.ssl.http.keystore_password: changeit<br>
-  # Do the clients (typically the browser or the proxy) have to authenticate themself to the http server, default is false<br>
-  #searchguard.ssl.http.enforce_clientauth: false<br>
-  # JKS or PKCS12 (default: JKS)<br>
-  #searchguard.ssl.http.truststore_type: PKCS12<br>
-  # Relative path to the truststore file (this stores the client certificates), must be placed under the config/ dir<br>
-  #searchguard.ssl.http.truststore_filepath: truststore_https.jks<br>
-  # Alias name (default: first alias which could be found)<br>
-  #searchguard.ssl.http.truststore_alias: my_alias<br>
-  # Truststore password (default: changeit)<br>
-  #searchguard.ssl.http.truststore_password: changeit<br>
-  # Use native Open SSL instead of JDK SSL if available (default: true)<br>
-  #searchguard.ssl.http.enable_openssl_if_available: false<br>
-<br>
+ https://github.com/wdh-001/searchguard/elasticsearch-ssl.yml
+
 还要增加searchguard的管理员帐号配置，同样在elasticsearch.yml中<br>
 <br>
   security.manager.enabled: false<br>
