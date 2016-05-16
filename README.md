@@ -36,17 +36,27 @@ bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 elasticsearch.yml增加以下配置
 
 #############################################################################################
+
 #                                     SEARCH GUARD SSL                                      #
+
 #                                       Configuration                                       #
+
 #############################################################################################
+
 
 #This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)
+
 security.manager.enabled: false
 
+
 #############################################################################################
+
 # Transport layer SSL                                                                       #
+
 #                                                                                           #
+
 #############################################################################################
+
 # Enable or disable node-to-node ssl encryption (default: true)
 #searchguard.ssl.transport.enabled: false
 # JKS or PKCS12 (default: JKS)
