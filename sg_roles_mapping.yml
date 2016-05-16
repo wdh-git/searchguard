@@ -1,0 +1,8 @@
+sg_logstash:
+  users:
+    - logstash
+sg_kibana4:
+  backendroles:
+    - kibana
+  users:
+    - kibana4
