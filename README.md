@@ -45,7 +45,7 @@ service elasticsearch restart
 
 将node证书和根证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh
 
-证书不正确会导致es服务起不来。（我曾经用ejbca生成证书不能使用）
+注意证书的中cn，ou，dc及oid，证书不正确会导致es服务起不来。（我曾经用ejbca生成证书不能使用）
 
 searchguard主要有5个配置文件在plugins/search-guard-2/sgconfig下：
 
