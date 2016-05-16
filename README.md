@@ -43,7 +43,9 @@ https://github.com/wdh-001/searchguard/elasticsearch-manager.yml
 
 service elasticsearch restart
 
-将证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh，（我曾经用ejbca生成证书不能使用），证书不正确会导致es服务起不来。
+将证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh
+
+证书不正确会导致es服务起不来。（我曾经用ejbca生成证书不能使用）
 
 searchguard主要有5个配置文件在plugins/search-guard-2/sgconfig下：
 
@@ -56,6 +58,8 @@ searchguard主要有5个配置文件在plugins/search-guard-2/sgconfig下：
 user文件，定义用户ELK我们需要一个kibana登录用户，和logstash用户：
 
 https://github.com/wdh-001/searchguard/sg_internal_users.yml
+
+密码可用plugins/search-guard-2/tools/sgadmin.sh生成
 
 ###3.sg_roles.yml:
 
@@ -81,8 +85,10 @@ https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
 plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks plugins/search-guard-2/sgconfig/admin-keystore.jks -ts plugins/search-guard-2/sgconfig/truststore.jks  -nhnv
 
-最后，可以尝试登录
+最后，可以尝试登录啦！
 
+登录界面会有验证
+帐号：kibana4 密码：kirk
  
 
 
