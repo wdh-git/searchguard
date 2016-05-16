@@ -63,27 +63,25 @@ https://github.com/wdh-001/searchguard/sg_internal_users.yml
 
 ###3.sg_roles.yml:
 
-roles的权限配置文件，这里提供kibana4和logstash2个roles的权限，可自行修改（searchguard自带的配置文件中这两个roles权限不够，kibana会登录不了）：
+roles的权限配置文件，这里提供kibana4和logstash2个roles的权限，可自行修改该部分内容（searchguard自带的配置文件中这两个roles权限不够，kibana会登录不了）：
 
 https://github.com/wdh-001/searchguard/sg_roles.yml
 
-sg_roles_mapping.yml:定义用户的roles：
+###4.sg_roles_mapping.yml:
+
+定义用户的roles，添加kibana及logstash用户的相应的roles：
 
 https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
-###4.sg_action_groups.yml:
+###5.sg_action_groups.yml:
 
 定义权限
-
-###5.sg_roles_mapping.yml:
-
-roles所对应的用户：
-
-https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
 ##加载searchguard配置并启用：
 
 plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks plugins/search-guard-2/sgconfig/admin-keystore.jks -ts plugins/search-guard-2/sgconfig/truststore.jks  -nhnv
+
+（如修改了密码，则需要使用plugins/search-guard-2/tools/sgadmin.sh -h查看对应参数）
 
 注意证书路径，将生成的admin证书和根证书放在sgconfig目录下。
 
@@ -92,7 +90,10 @@ plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks
 登录界面会有验证
 帐号：kibana4 密码：kirk
  
+ 
+请参考
 
+https://github.com/floragunncom/search-guard/tree/2.1.1
 
 
 
