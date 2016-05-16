@@ -37,11 +37,9 @@ elasticsearch.yml增加以下配置：
 
  https://github.com/wdh-001/searchguard/elasticsearch-ssl.yml
 
-还要增加searchguard的管理员帐号配置，同样在elasticsearch.yml中<br>
-<br>
-  security.manager.enabled: false<br>
-  searchguard.authcz.admin_dn:<br>
-   - "CN=admin,OU=client,O=client,l=tEst,C=De"
+还要增加searchguard的管理员帐号配置，同样在elasticsearch.yml中，增加以下配置：
+
+  https://github.com/wdh-001/searchguard/elasticsearch-manager.yml
 
   service elasticsearch restart
 
@@ -53,76 +51,21 @@ searchguard主要有5个配置文件在plugins/search-guard-2/sgconfig下：
 
 2.sg_internal_users.yml:user文件，定义用户ELK我们需要一个kibana登录用户，和logstash用户：
 
-  kibana4:<br>
-    hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO<br>
-    #password is: kirk<br>
-    roles:<br>
-      - kibana4<br>
-    logstash:<br>
-      hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO<br>
+https://github.com/wdh-001/searchguard/sg_internal_users.yml
 
 3.sg_roles.yml:roles的权限配置文件，这里提供kibana4和logstash2个roles的权限，可自行修改（searchguard自带的配置文件中这两个roles权限不够，kibana会登录不了）：
 
-  sg_kibana4:<br>
-    cluster:<br>
-        - cluster:monitor/nodes/info<br>
-        - cluster:monitor/health<br>
-    indices:<br>
-      '*':<br>
-        '*':<br>
-          - indices:admin/mappings/fields/get<br>
-          - indices:admin/validate/query<br>
-          - indices:data/read/search<br>
-          - indices:data/read/msearch<br>
-          - indices:admin/get<br>
-          - indices:data/read/field_stats<br>
-      '?kibana':<br>
-        '*':<br>
-          - indices:admin/exists<br>
-          - indices:admin/mapping/put<br>
-          - indices:admin/mappings/fields/get<br>
-          - indices:admin/refresh<br>
-          - indices:admin/validate/query<br>
-          - indices:data/read/get<br>
-
-  sg_logstash:<br>
-    cluster:<br>
-      - indices:admin/template/get<br>
-      - indices:admin/template/put<br>
-    indices:<br>
-      'logstash-*':<br>
-        '*':<br>
-          - WRITE<br>
-          - indices:data/write/bulk<br>
-          - indices:data/write/delete<br>
-          - indices:data/write/update<br>
-          - indices:data/read/search<br>
-          - indices:data/read/scroll<br>
-          - CREATE_INDEX<br>
+https://github.com/wdh-001/searchguard/sg_roles.yml
 
 sg_roles_mapping.yml:定义用户的roles：
 
-  sg_kibana4:<br>
-    backendroles:<br>
-      - kibana<br>
-    users:<br>
-      - kibana4<br>
-  sg_logstash:<br>
-    users:<br>
-      - logstash<br>
+https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
 4.sg_action_groups.yml:定义权限
 
 5.sg_roles_mapping.yml:roles所对应的用户：
 
-  sg_logstash:<br>
-    users:<br>
-      - logstash<br>
-  sg_kibana4:<br>
-    backendroles:<br>
-      - kibana<br>
-    users:<br>
-      - kibana4<br>
+https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
  
 
