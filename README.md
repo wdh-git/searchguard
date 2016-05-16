@@ -77,6 +77,12 @@ roles所对应的用户：
 
 https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
+##加载searchguard配置并启用：
+
+plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks plugins/search-guard-2/sgconfig/admin-keystore.jks -ts plugins/search-guard-2/sgconfig/truststore.jks  -nhnv
+
+最后，可以尝试登录
+
  
 
 
