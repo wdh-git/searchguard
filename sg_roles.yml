@@ -1,0 +1,36 @@
+sg_kibana4:
+  cluster:
+      - cluster:monitor/nodes/info
+      - cluster:monitor/health
+  indices:
+    '*':
+      '*':
+        - indices:admin/mappings/fields/get
+        - indices:admin/validate/query
+        - indices:data/read/search
+        - indices:data/read/msearch
+        - indices:admin/get
+        - indices:data/read/field_stats
+    '?kibana':
+      '*':
+        - indices:admin/exists
+        - indices:admin/mapping/put
+        - indices:admin/mappings/fields/get
+        - indices:admin/refresh
+        - indices:admin/validate/query
+        - indices:data/read/get
+
+sg_logstash:
+  cluster:
+    - indices:admin/template/get
+    - indices:admin/template/put
+  indices:
+    'logstash-*':
+      '*':
+        - WRITE
+        - indices:data/write/bulk
+        - indices:data/write/delete
+        - indices:data/write/update
+        - indices:data/read/search
+        - indices:data/read/scroll
+        - CREATE_INDEX
