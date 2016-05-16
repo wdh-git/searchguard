@@ -5,4 +5,4 @@ rm -rf crl/
 rm -f *.jks
 rm -f *.pem
 rm -f *.p12
-rm -f *.cs
+rm -f *.csr
