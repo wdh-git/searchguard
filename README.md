@@ -7,8 +7,6 @@ kibana4.3.1
 
 logstash2.1.1-1
 
-java1.8
-
 关于es权限管理方面只有官方推荐的shield，但是只能试用1个月
 
 searchguard相对于shield不是很成熟，特别是对于1.x的版本。关于1.x版本的这边有介绍
@@ -26,6 +24,8 @@ searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁
 支持热载入，不需要重启服务
 
 支持kibana4及logstash的配置
+
+可以控制不通的用户访问不同的权限
 
 配置简单
 
@@ -98,9 +98,11 @@ plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks
 最后，可以尝试登录啦！
 
 登录界面会有验证
+
 帐号：kibana4 密码：kirk
- 
- 
+
+更多的权限配置可以自己研究。
+
 请参考
 
 https://github.com/floragunncom/search-guard/tree/2.1.1
