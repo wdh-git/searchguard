@@ -181,3 +181,4 @@ sg_kibana4:
   users:
     - kibana4
 
+ 
