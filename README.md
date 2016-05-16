@@ -45,15 +45,23 @@ service elasticsearch restart
 
 将证书放在elasticsearch配置文件目录下，证书可用pki-scripts生成，（我曾经用ejbca生成证书不能使用），证书不正确会导致服务起不来。
 
+关于证书的配置https://github.com/wdh-001/searchguard/pki-scripts/
+
 searchguard主要有5个配置文件在plugins/search-guard-2/sgconfig下：
 
-###1.sg_config.yml:主配置文件不需要做改动
+###1.sg_config.yml:
 
-###2.sg_internal_users.yml:user文件，定义用户ELK我们需要一个kibana登录用户，和logstash用户：
+主配置文件不需要做改动
+
+###2.sg_internal_users.yml:
+
+user文件，定义用户ELK我们需要一个kibana登录用户，和logstash用户：
 
 https://github.com/wdh-001/searchguard/sg_internal_users.yml
 
-###3.sg_roles.yml:roles的权限配置文件，这里提供kibana4和logstash2个roles的权限，可自行修改（searchguard自带的配置文件中这两个roles权限不够，kibana会登录不了）：
+###3.sg_roles.yml:
+
+roles的权限配置文件，这里提供kibana4和logstash2个roles的权限，可自行修改（searchguard自带的配置文件中这两个roles权限不够，kibana会登录不了）：
 
 https://github.com/wdh-001/searchguard/sg_roles.yml
 
@@ -61,9 +69,13 @@ sg_roles_mapping.yml:定义用户的roles：
 
 https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
-###4.sg_action_groups.yml:定义权限
+###4.sg_action_groups.yml:
 
-###5.sg_roles_mapping.yml:roles所对应的用户：
+定义权限
+
+###5.sg_roles_mapping.yml:
+
+roles所对应的用户：
 
 https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 
