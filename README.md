@@ -34,12 +34,12 @@ bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 首先要配置elasticsearch支持ssl
 elasticsearch.yml增加以下配置
 
-#############################################################################################
-#                                     SEARCH GUARD SSL                                      #
-#                                       Configuration                                       #
-#############################################################################################
+\#############################################################################################
+\#                                     SEARCH GUARD SSL                                      #
+\#                                       Configuration                                       #
+\#############################################################################################
 
-#This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)
+\#This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)
 security.manager.enabled: false
 
 #############################################################################################
