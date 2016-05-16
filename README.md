@@ -43,7 +43,7 @@ https://github.com/wdh-001/searchguard/elasticsearch-manager.yml
 
 service elasticsearch restart
 
-将证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh
+将node证书和根证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh
 
 证书不正确会导致es服务起不来。（我曾经用ejbca生成证书不能使用）
 
@@ -84,6 +84,8 @@ https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
 ##加载searchguard配置并启用：
 
 plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks plugins/search-guard-2/sgconfig/admin-keystore.jks -ts plugins/search-guard-2/sgconfig/truststore.jks  -nhnv
+
+注意证书路径，将生成的admin证书和根证书放在sgconfig目录下。
 
 最后，可以尝试登录啦！
 
