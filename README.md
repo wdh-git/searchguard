@@ -35,24 +35,24 @@ bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 
 elasticsearch.yml增加以下配置
 
-#############################################################################################
-#                                     SEARCH GUARD SSL                                      #
-#                                       Configuration                                       #
-#############################################################################################
+#############################################################################################<br>
+#                                     SEARCH GUARD SSL                                      #<br>
+#                                       Configuration                                       #<br>
+#############################################################################################<br>
 
-#This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)
+#This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)<br>
 security.manager.enabled: false
 
-#############################################################################################
-# Transport layer SSL                                                                       #
-#                                                                                           #
+#############################################################################################<br>
+# Transport layer SSL                                                                       #<br>
+#                                                                                           #<br>
 #############################################################################################
 
-# Enable or disable node-to-node ssl encryption (default: true)
-#searchguard.ssl.transport.enabled: false
-# JKS or PKCS12 (default: JKS)
-#searchguard.ssl.transport.keystore_type: PKCS12
-# Relative path to the keystore file (mandatory, this stores the server certificates), must be placed under the config/ dir
+# Enable or disable node-to-node ssl encryption (default: true)<br>
+#searchguard.ssl.transport.enabled: false<br>
+# JKS or PKCS12 (default: JKS)<br>
+#searchguard.ssl.transport.keystore_type: PKCS12<br>
+# Relative path to the keystore file (mandatory, this stores the server certificates), must be placed under the config/ dir<br>
 searchguard.ssl.transport.keystore_filepath: keystore_node1.jks
 # Alias name (default: first alias which could be found)
 searchguard.ssl.transport.keystore_alias: my_alias
