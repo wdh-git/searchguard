@@ -172,15 +172,15 @@ sg_logstash:
   users:
     - logstash
 
-4.sg_action_groups.yml:定义权限
-5.sg_roles_mapping.yml:roles所对应的用户：
-sg_logstash:
-  users:
-    - logstash
-sg_kibana4:
-  backendroles:
-    - kibana
-  users:
-    - kibana4
+4.sg_action_groups.yml:定义权限<br>
+5.sg_roles_mapping.yml:roles所对应的用户：<br>
+sg_logstash:<br>
+  users:<br>
+    - logstash<br>
+sg_kibana4:<br>
+  backendroles:<br>
+    - kibana<br>
+  users:<br>
+    - kibana4<br>
 
  
