@@ -162,15 +162,15 @@ sg_logstash:
         - indices:data/read/scroll
         - CREATE_INDEX
 
-sg_roles_mapping.yml:定义用户的roles：
-sg_kibana4:
-  backendroles:
-    - kibana
-  users:
-    - kibana4
-sg_logstash:
-  users:
-    - logstash
+sg_roles_mapping.yml:定义用户的roles：<br>
+sg_kibana4:<br>
+  backendroles:<br>
+    - kibana<br>
+  users:<br>
+    - kibana4<br>
+sg_logstash:<br>
+  users:<br>
+    - logstash<br>
 
 4.sg_action_groups.yml:定义权限<br>
 5.sg_roles_mapping.yml:roles所对应的用户：<br>
