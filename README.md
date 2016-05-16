@@ -34,7 +34,7 @@ bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 首先要配置elasticsearch支持ssl
 
 elasticsearch.yml增加以下配置
-
+···Bash
 #############################################################################################<br>
 #                                     SEARCH GUARD SSL                                      #<br>
 #                                       Configuration                                       #<br>
@@ -100,7 +100,7 @@ searchguard.ssl.transport.keystore_password: changeit
 #searchguard.ssl.http.truststore_password: changeit
 # Use native Open SSL instead of JDK SSL if available (default: true)
 #searchguard.ssl.http.enable_openssl_if_available: false
-
+···
 还要增加searchguard的管理员帐号配置，同样在elasticsearch.yml中
 
 security.manager.enabled: false
