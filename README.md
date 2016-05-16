@@ -11,7 +11,9 @@ java1.8
 
 关于es权限管理方面只有官方推荐的shield，但是只能试用1个月
 
-searchguard相对于shield不是很成熟，特别是对于1.x的版本。关于1.x版本的这边有介绍http://kibana.logstash.es/content/elasticsearch/auth/searchguard.html
+searchguard相对于shield不是很成熟，特别是对于1.x的版本。关于1.x版本的这边有介绍
+
+http://kibana.logstash.es/content/elasticsearch/auth/searchguard.html
 
 searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁很多。
 
@@ -49,7 +51,9 @@ https://github.com/wdh-001/searchguard/elasticsearch-manager.yml
 
 service elasticsearch restart
 
-将node证书和根证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，我修改了下https://github.com/wdh-001/searchguard/pki-scripts/example.sh
+将node证书和根证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，修改了下
+
+https://github.com/wdh-001/searchguard/pki-scripts/example.sh
 
 注意证书的中cn，ou，dc及oid，证书不正确会导致es服务起不来。（我曾经用ejbca生成证书不能使用）
 
