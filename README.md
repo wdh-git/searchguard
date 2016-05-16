@@ -15,7 +15,7 @@ searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁
 
 优点：
 
-1.加入了对ssl的支持。​
+1.加入了对ssl的支持。
 
 2.支持热载入，不需要重启服务
 
@@ -27,7 +27,7 @@ searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁
 
 bin/plugin install com.floragunn/search-guard-ssl/2.1.1.5
 
-安装search-guard-2​
+安装search-guard-2
 
 bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 
@@ -35,71 +35,71 @@ bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
 
 elasticsearch.yml增加以下配置
 
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#<br>
-\#                                     SEARCH GUARD SSL                                      \#<br>
-\#                                       Configuration                                       \#<br>
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#<br>
+#############################################################################################
+#                                     SEARCH GUARD SSL                                      #
+#                                       Configuration                                       #
+#############################################################################################
 
-\#This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)<br>
+#This will likely change with Elasticsearch 2.2, see [PR 14108](https://github.com/elastic/elasticsearch/pull/14108)
 security.manager.enabled: false
 
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#<br>
-\# Transport layer SSL                                                                       \#<br>
-\#                                                                                           \#<br>
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+#############################################################################################
+# Transport layer SSL                                                                       #
+#                                                                                           #
+#############################################################################################
 
-\# Enable or disable node-to-node ssl encryption (default: true)<br>
-\#searchguard.ssl.transport.enabled: false<br>
-\# JKS or PKCS12 (default: JKS)<br>
-\#searchguard.ssl.transport.keystore_type: PKCS12<br>
-\# Relative path to the keystore file (mandatory, this stores the server certificates), must be placed under the config/ dir<br>
+# Enable or disable node-to-node ssl encryption (default: true)
+#searchguard.ssl.transport.enabled: false
+# JKS or PKCS12 (default: JKS)
+#searchguard.ssl.transport.keystore_type: PKCS12
+# Relative path to the keystore file (mandatory, this stores the server certificates), must be placed under the config/ dir
 searchguard.ssl.transport.keystore_filepath: keystore_node1.jks
-\# Alias name (default: first alias which could be found)
+# Alias name (default: first alias which could be found)
 searchguard.ssl.transport.keystore_alias: my_alias
-\# Keystore password (default: changeit)
+# Keystore password (default: changeit)
 searchguard.ssl.transport.keystore_password: changeit
 
-\# JKS or PKCS12 (default: JKS)
-\#searchguard.ssl.transport.truststore_type: PKCS12
-\# Relative path to the truststore file (mandatory, this stores the client/root certificates), must be placed under the config/ dir
-\#searchguard.ssl.transport.truststore_filepath: truststore.jks
-\# Alias name (default: first alias which could be found)
-\#searchguard.ssl.transport.truststore_alias: my_alias
-\# Truststore password (default: changeit)
-\#searchguard.ssl.transport.truststore_password: changeit
-\# Enforce hostname verification (default: true)
-\#searchguard.ssl.transport.enforce_hostname_verification: true
-\# If hostname verification specify if hostname should be resolved (default: true)
-\#searchguard.ssl.transport.resolve_hostname: true
-\# Use native Open SSL instead of JDK SSL if available (default: true)
-\#searchguard.ssl.transport.enable_openssl_if_available: false
+# JKS or PKCS12 (default: JKS)
+#searchguard.ssl.transport.truststore_type: PKCS12
+# Relative path to the truststore file (mandatory, this stores the client/root certificates), must be placed under the config/ dir
+#searchguard.ssl.transport.truststore_filepath: truststore.jks
+# Alias name (default: first alias which could be found)
+#searchguard.ssl.transport.truststore_alias: my_alias
+# Truststore password (default: changeit)
+#searchguard.ssl.transport.truststore_password: changeit
+# Enforce hostname verification (default: true)
+#searchguard.ssl.transport.enforce_hostname_verification: true
+# If hostname verification specify if hostname should be resolved (default: true)
+#searchguard.ssl.transport.resolve_hostname: true
+# Use native Open SSL instead of JDK SSL if available (default: true)
+#searchguard.ssl.transport.enable_openssl_if_available: false
 
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
-\# HTTP/REST layer SSL                                                                       \#
-\#                                                                                           \#
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
-\# Enable or disable rest layer security - https, (default: false)
-\#searchguard.ssl.http.enabled: true
-\# JKS or PKCS12 (default: JKS)
-\#searchguard.ssl.http.keystore_type: PKCS12
-\# Relative path to the keystore file (this stores the server certificates), must be placed under the config/ dir
-\#searchguard.ssl.http.keystore_filepath: keystore_https_node1.jks
-\# Alias name (default: first alias which could be found)
-\#searchguard.ssl.http.keystore_alias: my_alias
-\# Keystore password (default: changeit)
-\#searchguard.ssl.http.keystore_password: changeit
-\# Do the clients (typically the browser or the proxy) have to authenticate themself to the http server, default is false
-\#searchguard.ssl.http.enforce_clientauth: false
-\# JKS or PKCS12 (default: JKS)
-\#searchguard.ssl.http.truststore_type: PKCS12
-\# Relative path to the truststore file (this stores the client certificates), must be placed under the config/ dir
-\#searchguard.ssl.http.truststore_filepath: truststore_https.jks
-\# Alias name (default: first alias which could be found)
-\#searchguard.ssl.http.truststore_alias: my_alias
-\# Truststore password (default: changeit)
-\#searchguard.ssl.http.truststore_password: changeit
-\# Use native Open SSL instead of JDK SSL if available (default: true)
-\#searchguard.ssl.http.enable_openssl_if_available: false
+#############################################################################################
+# HTTP/REST layer SSL                                                                       #
+#                                                                                           #
+#############################################################################################
+# Enable or disable rest layer security - https, (default: false)
+#searchguard.ssl.http.enabled: true
+# JKS or PKCS12 (default: JKS)
+#searchguard.ssl.http.keystore_type: PKCS12
+# Relative path to the keystore file (this stores the server certificates), must be placed under the config/ dir
+#searchguard.ssl.http.keystore_filepath: keystore_https_node1.jks
+# Alias name (default: first alias which could be found)
+#searchguard.ssl.http.keystore_alias: my_alias
+# Keystore password (default: changeit)
+#searchguard.ssl.http.keystore_password: changeit
+# Do the clients (typically the browser or the proxy) have to authenticate themself to the http server, default is false
+#searchguard.ssl.http.enforce_clientauth: false
+# JKS or PKCS12 (default: JKS)
+#searchguard.ssl.http.truststore_type: PKCS12
+# Relative path to the truststore file (this stores the client certificates), must be placed under the config/ dir
+#searchguard.ssl.http.truststore_filepath: truststore_https.jks
+# Alias name (default: first alias which could be found)
+#searchguard.ssl.http.truststore_alias: my_alias
+# Truststore password (default: changeit)
+#searchguard.ssl.http.truststore_password: changeit
+# Use native Open SSL instead of JDK SSL if available (default: true)
+#searchguard.ssl.http.enable_openssl_if_available: false
 
 还要增加searchguard的管理员帐号配置，同样在elasticsearch.yml中
 
@@ -162,25 +162,30 @@ sg_logstash:
         - indices:data/read/scroll
         - CREATE_INDEX
 
-sg_roles_mapping.yml:定义用户的roles：<br>
-sg_kibana4:<br>
-  backendroles:<br>
-    - kibana<br>
-  users:<br>
-    - kibana4<br>
-sg_logstash:<br>
-  users:<br>
-    - logstash<br>
+sg_roles_mapping.yml:定义用户的roles：
+sg_kibana4:
+  backendroles:
+    - kibana
+  users:
+    - kibana4
+sg_logstash:
+  users:
+    - logstash
 
-4.sg_action_groups.yml:定义权限<br>
-5.sg_roles_mapping.yml:roles所对应的用户：<br>
-sg_logstash:<br>
-  users:<br>
-    - logstash<br>
-sg_kibana4:<br>
-  backendroles:<br>
-    - kibana<br>
-  users:<br>
-    - kibana4<br>
+4.sg_action_groups.yml:定义权限
+5.sg_roles_mapping.yml:roles所对应的用户：
+sg_logstash:
+  users:
+    - logstash
+sg_kibana4:
+  backendroles:
+    - kibana
+  users:
+    - kibana4
 
  
+
+
+
+
+
