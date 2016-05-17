@@ -141,7 +141,7 @@ kibana4:
   logstash:
     hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
 ```
-密码可用plugins/search-guard-2/tools/hash.sh生成
+密码可用[plugins/search-guard-2/tools/hash.sh](https://github.com/wdh-001/searchguard/blob/master/tools/hash.sh)生成
 
 ###3.sg_roles.yml:
 
