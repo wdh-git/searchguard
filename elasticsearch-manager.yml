@@ -1,3 +1,0 @@
-security.manager.enabled: false
-searchguard.authcz.admin_dn:
-  - "CN=admin,OU=client,O=client,l=tEst,C=De"
