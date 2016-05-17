@@ -113,13 +113,11 @@ searchguard.ssl.transport.truststore_password: changeit
 ```Bash
 security.manager.enabled: false
 searchguard.authcz.admin_dn:
-  - "CN=admin,OU=client,O=client,l=tEst,C=De"
+  - "CN=admin,OU=client,O=client,l=tEst,C=De" #DN
 ```
 重启elasticsearch
 
-将node证书和根证书放在elasticsearch配置文件目录下，证书可用openssl生成,官方提供了脚本，修改了下
-
-https://github.com/wdh-001/searchguard/pki-scripts/example.sh
+将node证书和根证书放在elasticsearch配置文件目录下，证书可用openssl生成,，[修改了下官方提供了脚本](https://github.com/wdh-001/searchguard/pki-scripts/example.sh)
 
 注意证书的中client的DN及server的oid，证书不正确会导致es服务起不来。（我曾经用ejbca生成证书不能使用）
 
@@ -138,8 +136,8 @@ kibana4:
   #password is: kirk
   roles:
     - kibana4
-  logstash:
-    hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
+logstash:
+  hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
 ```
 密码可用[plugins/search-guard-2/tools/hash.sh](https://github.com/wdh-001/searchguard/blob/master/tools/hash.sh)生成
 
