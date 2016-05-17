@@ -32,13 +32,13 @@ searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁
 ##安装：
 
 安装search-guard-ssl
- ' ::'
+```Bash
 bin/plugin install com.floragunn/search-guard-ssl/2.1.1.5
-
+```
 安装search-guard-2
-
+```Bash
 bin/plugin install com.floragunn/search-guard-2/2.1.1.0-alpha2
-
+```
 首先要配置elasticsearch支持ssl
 
 elasticsearch.yml增加以下配置：
@@ -82,7 +82,16 @@ https://github.com/wdh-001/searchguard/sg_roles.yml
 定义用户的roles，添加kibana及logstash用户的相应的roles：
 
 https://github.com/wdh-001/searchguard/sg_roles_mapping.yml
-
+```Bash
+sg_logstash:
+  users:
+    - logstash
+sg_kibana4:
+  backendroles:
+    - kibana
+  users:
+    - kibana4
+```
 ###5.sg_action_groups.yml:
 
 定义权限
