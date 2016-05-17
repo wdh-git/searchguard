@@ -32,7 +32,7 @@ searchguard2.x更新后跟shield配置上很相似，相比之前的版本简洁
 ##安装：
 
 安装search-guard-ssl
-
+" ::"
 bin/plugin install com.floragunn/search-guard-ssl/2.1.1.5
 
 安装search-guard-2
