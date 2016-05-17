@@ -145,7 +145,7 @@ kibana4:
 
 ###3.sg_roles.yml:
 
-roles的权限配置文件，这里提供kibana4和logstash2个roles的权限，可自行修改该部分内容（searchguard自带的配置文件中这两个roles权限不够，kibana会登录不了）：
+权限配置文件，这里提供kibana4和logstash的权限，以下是我修改后的内容，可自行修改该部分内容（插件安装自带的配置文件中权限不够，kibana会登录不了，shield中同样的权限却是够了）：
 ```Bash
 sg_kibana4:
   cluster:
