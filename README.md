@@ -259,6 +259,13 @@ plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks
 
 注意证书路径，将生成的admin证书和根证书放在sgconfig目录下。
 
+##最后在kibana主配置文件中加入kibana-server的帐号
+
+kibana/config/kibana.yml
+```Bash
+ elasticsearch.username: "kibana4-server"
+ elasticsearch.password: "kirk"
+```
 最后，可以尝试登录啦！
 
 登录界面会有验证
