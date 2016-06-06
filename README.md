@@ -133,11 +133,20 @@ user文件，定义用户ELK我们需要一个kibana登录用户，和logstash�
 ```Bash
 kibana4:
   hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
-  #password is: kirk
+  #kirk
   roles:
     - kibana4
+admin:
+  hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
+  #kirk
+kibana4-server:
+  hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
+  #kirk
+  roles:
+    - kibana-server
 logstash:
   hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
+  #kirk
 ```
 密码可用[plugins/search-guard-2/tools/hash.sh](https://github.com/wdh-001/searchguard/blob/master/tools/hash.sh)生成
 
@@ -145,10 +154,17 @@ logstash:
 
 权限配置文件，这里提供kibana4和logstash的权限，以下是我修改后的内容，可自行修改该部分内容（插件安装自带的配置文件中权限不够，kibana会登录不了，shield中同样的权限却是够了）：
 ```Bash
-sg_kibana4:
+sg_admin:
   cluster:
+    - CLUSTER_ALL
+  indices:
+    '*':
+      '*':
+        - ALL
+sg_kibana4:
+  cluster: 
       - cluster:monitor/nodes/info
-      - cluster:monitor/health
+      - cluster:monitor/health 
   indices:
     '*':
       '*':
@@ -166,6 +182,32 @@ sg_kibana4:
         - indices:admin/refresh
         - indices:admin/validate/query
         - indices:data/read/get
+        - indices:data/read/mget
+        - indices:data/read/search
+        - indices:data/write/delete
+        - indices:data/write/index
+        - indices:data/write/update
+        - indices:admin/*
+        - READ
+sg_kibana4_server:
+  cluster:
+      - cluster:monitor/nodes/info
+      - cluster:monitor/health
+  indices:
+    '?kibana':
+      '*':
+        - indices:admin/create
+        - indices:admin/exists
+        - indices:admin/mapping/put
+        - indices:admin/mappings/fields/get
+        - indices:admin/refresh
+        - indices:admin/validate/query
+        - indices:data/read/get
+        - indices:data/read/mget
+        - indices:data/read/search
+        - indices:data/write/delete
+        - indices:data/write/index
+        - indices:data/write/update
 sg_logstash:
   cluster:
     - indices:admin/template/get
@@ -185,6 +227,9 @@ sg_logstash:
 
 定义用户的映射关系，添加kibana及logstash用户的相应的映射：
 ```Bash
+sg_admin:
+  users:
+    - admin
 sg_logstash:
   users:
     - logstash
@@ -193,6 +238,14 @@ sg_kibana4:
     - kibana
   users:
     - kibana4
+sg_kibana4_server:
+  backendroles:
+    - kibana_server
+  users:
+    - kibana4-server
+sg_public:
+  users:
+    - '*'
 ```
 ###5.sg_action_groups.yml:
 
@@ -202,7 +255,7 @@ sg_kibana4:
 ```Bash
 plugins/search-guard-2/tools/sgadmin.sh -cd plugins/search-guard-2/sgconfig/ -ks plugins/search-guard-2/sgconfig/admin-keystore.jks -ts plugins/search-guard-2/sgconfig/truststore.jks  -nhnv
 ```
-（如修改了密码，则需要使用plugins/search-guard-2/tools/sgadmin.sh -h查看对应参数）
+（如修改了密码，则需要使用plugins/search-guard-2/tools/sgadmin.sh -h查看对应参数,加上-kspass,-tspass参数）
 
 注意证书路径，将生成的admin证书和根证书放在sgconfig目录下。
 
