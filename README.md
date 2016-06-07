@@ -113,7 +113,7 @@ searchguard.ssl.transport.truststore_password: changeit
 ```Bash
 security.manager.enabled: false
 searchguard.authcz.admin_dn:
-  - "CN=admin,OU=client,O=client,l=tEst,C=De" #DN
+  - "CN=wdh-admin,OU=client,O=client,l=Test,C=De" #DN
 ```
 重启elasticsearch
 
@@ -136,7 +136,7 @@ kibana4:
   #kirk
   roles:
     - kibana4
-admin:
+wdh-admin:
   hash: $2a$12$xZOcnwYPYQ3zIadnlQIJ0eNhX1ngwMkTN.oMwkKxoGvDVPn4/6XtO
   #kirk
 kibana4-server:
@@ -229,7 +229,7 @@ sg_logstash:
 ```Bash
 sg_admin:
   users:
-    - admin
+    - wdh-admin
 sg_logstash:
   users:
     - logstash
