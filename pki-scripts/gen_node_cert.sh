@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-NODE_NAME=node-$1
+NODE_NAME=$1
 KS_PASS=$2
 CA_PASS=$3
 rm -f $NODE_NAME-keystore.jks
