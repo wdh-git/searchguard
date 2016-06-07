@@ -61,7 +61,7 @@ security.manager.enabled: false
 # JKS or PKCS12 (default: JKS)
 #searchguard.ssl.transport.keystore_type: PKCS12
 # Relative path to the keystore file (mandatory, this stores the server certificates), must be placed under the config/ dir
-searchguard.ssl.transport.keystore_filepath: node0-keystore.jks
+searchguard.ssl.transport.keystore_filepath: node-0-keystore.jks
 # Alias name (default: first alias which could be found)
 searchguard.ssl.transport.keystore_alias: my_alias
 # Keystore password (default: changeit)
